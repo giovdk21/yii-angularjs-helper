@@ -1,0 +1,19 @@
+{
+    "name": "giovdk21/yii-angularjs-helper",
+    "type": "library",
+    "description": "Yii AngularJS Helper Widget",
+    "keywords": ["yii", "angularjs", "helper", "widget"],
+    "license": "MIT License",
+    "support": {
+        "source": "https://github.com/giovdk21/yii-angularjs-helper"
+    },
+    "authors": [
+        {
+            "name": "Giovanni Derks",
+            "homepage": "http://derks.me.uk/"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0"
+    }
+}
