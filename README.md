@@ -1,4 +1,4 @@
-yii-angularjs-helper
+Yii AngularJS Helper Widget
 ====================
 
 This extension allows to easily load and embed your AngularJS application from a Yii view.
