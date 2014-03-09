@@ -1,0 +1,29 @@
+
+h1 { color: blue; }
+
+.view-animate.ng-enter {
+    -webkit-transition: opacity 0.5s ease-in-out;
+    -moz-transition: opacity 0.5s ease-in-out;
+    -o-transition: opacity 0.5s ease-in-out;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.view-animate.ng-enter {
+    opacity: 0;
+}
+
+.view-animate.ng-enter.ng-enter-active {
+    opacity: 1;
+}
+
+ul.inline-block-list {
+    list-style: none;
+    padding: 0;
+}
+
+ul.inline-block-list li {
+    display: inline-block;
+    padding: 0;
+    margin-left: 6px;
+    margin-right: 6px;
+}
