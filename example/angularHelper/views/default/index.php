@@ -27,8 +27,9 @@ $this->breadcrumbs = array(
     )
 ); ?>
 
+
 <nav>
-    <ul class="inline-block-list" ng-click="showMobileMenu === true ? (showMobileMenu = false) : null">
+    <ul class="inline-block-list">
         <li><a href="#!/">Home</a></li>
         <li><a href="#!/page1">Page 1</a></li>
         <li><a href="#!/page2">Page 2</a></li>

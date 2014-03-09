@@ -1,7 +1,6 @@
 'use strict';
 
 
-
 var testApp = angular.module('testApp', ['ngAnimate', 'ngRoute']);
 
 //This configures the routes and associates each route with a view and a controller

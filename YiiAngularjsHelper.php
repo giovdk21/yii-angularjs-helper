@@ -8,6 +8,15 @@
  * @version 0.1
  *
  * License: MIT License (http://www.opensource.org/licenses/mit-license.php)
+ *
+ *
+ * Main features:
+ * - publish and load AngularJS base script and required modules
+ * - publish and load your AngularJS application assets
+ * - concatenate AngularJS application scripts into a single file
+ * - replace placeholders values on assets pubblication
+ * - flexible configuration
+ *
  */
 class YiiAngularjsHelper extends CWidget
 {
