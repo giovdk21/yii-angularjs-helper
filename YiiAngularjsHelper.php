@@ -5,7 +5,7 @@
  *
  * @author  Giovanni Derks
  * @link    https://github.com/giovdk21/yii-angularjs-helper
- * @version 0.2
+ * @version 0.2.1
  *
  * License: MIT License (http://www.opensource.org/licenses/mit-license.php)
  *
