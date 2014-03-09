@@ -20,7 +20,7 @@ $this->breadcrumbs = array(
         'appScripts'                 => array('test.js'),
         'appStyles'                  => array('style.css'),
         'requiredModulesScriptNames' => array('route', 'animate'),
-        'customPlaceholders'         => array('[:DATETIME]' => date('Y-m-d H:i:s'), '[:CUSTOM_02]' => 'Value 2'),
+        'customPlaceholders'         => array('[:DATETIME]' => date('Y-m-d H:i:s')),
         'scriptsPosition'            => CClientScript::POS_HEAD,
         'concatenateAppScripts'      => true,
         'debug'                      => true,
