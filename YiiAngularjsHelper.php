@@ -359,4 +359,18 @@ class YiiAngularjsHelper extends CWidget
         }
     }
 
+    /**
+     * @return string the url of the published application assets
+     */
+    public function getAppAssetsUrl() {
+        return $this->_appAssetsUrl;
+    }
+
+    /**
+     * @return string the path of the published application assets
+     */
+    public function getAppAssetsPath() {
+        return $this->_appAssetsPath;
+    }
+
 }
