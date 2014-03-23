@@ -9,7 +9,7 @@ $this->breadcrumbs = array(
 
 <?php $this->renderPartial('_menu'); ?>
 
-<?php $this->beginWidget('ext.yii-angularjs-helper.YiiAngularjsHelper', array(
+<?php $angularHelper = $this->beginWidget('ext.yii-angularjs-helper.YiiAngularjsHelper', array(
         'appName'                    => 'todoApp',
         'appFolder'                  => dirname(__FILE__) . '/../../angularjs/app2',
         'appScripts'                 => array('todo.js'),
@@ -39,6 +39,10 @@ $this->breadcrumbs = array(
                placeholder="add new todo here">
         <input class="btn-primary" type="submit" value="add">
     </form>
+
+    <p style="background-color: #eeeeee; padding: 0.7em; margin: 1em 0;">
+        The url of your assets folder is {{yiiParams.assetsFolder}}
+    </p>
 </div>
 
 
@@ -53,5 +57,6 @@ $this->breadcrumbs = array(
         // (setting them by reference)
         params.todoText = "Set from the view at <?php echo date('H:i:s'); ?>";
         params.todoDone = <?php echo (rand(0,1) > 0 ? 'true' : 'false'); ?>;
+        params.assetsFolder = '<?php echo $angularHelper->getAppAssetsUrl(); ?>';
     }
 </script>
