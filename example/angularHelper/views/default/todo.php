@@ -43,3 +43,15 @@ $this->breadcrumbs = array(
 
 
 <?php $this->endWidget('ext.yii-angularjs-helper.YiiAngularjsHelper'); ?>
+
+
+
+
+<script>
+    // Passing parameters to the script / controller without using placeholders:
+    function setYiiParams(params) {
+        // (setting them by reference)
+        params.todoText = "Set from the view at <?php echo date('H:i:s'); ?>";
+        params.todoDone = <?php echo (rand(0,1) > 0 ? 'true' : 'false'); ?>;
+    }
+</script>

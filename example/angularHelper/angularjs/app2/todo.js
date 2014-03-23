@@ -5,8 +5,13 @@ var todoApp = angular.module('TodoApp', ['ngRoute']);
 
 
 function TodoCtrl($scope) {
+
+    $scope.yiiParams = {};
+    setYiiParams($scope.yiiParams);
+
     $scope.todos = [
         {text:'learn angular', done:true},
+        {text:$scope.yiiParams.todoText, done:$scope.yiiParams.todoDone},
         {text:'build an angular app', done:false}];
 
     $scope.addTodo = function() {

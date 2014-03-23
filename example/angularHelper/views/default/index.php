@@ -20,16 +20,15 @@ $this->breadcrumbs = array(
         'appScripts'                 => array('test.js'),
         'appStyles'                  => array('style.css'),
         'requiredModulesScriptNames' => array('route', 'animate'),
-        'customPlaceholders'         => array('[:DATETIME]' => date('Y-m-d H:i:s')),
+        'customPlaceholders'         => array('[:DATETIME]' => date('Y-m-d H:i:s'), '[:CUSTOM_02]' => 'Value 2'),
         'scriptsPosition'            => CClientScript::POS_HEAD,
         'concatenateAppScripts'      => true,
         'debug'                      => true,
     )
 ); ?>
 
-
 <nav>
-    <ul class="inline-block-list">
+    <ul class="inline-block-list" ng-click="showMobileMenu === true ? (showMobileMenu = false) : null">
         <li><a href="#!/">Home</a></li>
         <li><a href="#!/page1">Page 1</a></li>
         <li><a href="#!/page2">Page 2</a></li>

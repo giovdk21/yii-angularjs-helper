@@ -14,7 +14,7 @@
  * - publish and load AngularJS base script and required modules
  * - publish and load your AngularJS application assets
  * - concatenate AngularJS application scripts into a single file
- * - replace placeholders values on assets pubblication
+ * - replace placeholders values on assets publication
  * - flexible configuration
  *
  */
