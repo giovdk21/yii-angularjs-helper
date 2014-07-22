@@ -5,7 +5,7 @@
  *
  * @author  Giovanni Derks
  * @link    https://github.com/giovdk21/yii-angularjs-helper
- * @version 0.2.1
+ * @version 0.2.2
  *
  * License: MIT License (http://www.opensource.org/licenses/mit-license.php)
  *
@@ -20,8 +20,6 @@
  */
 class YiiAngularjsHelper extends CWidget
 {
-    // Use always / as URL seperator instead of DIRECTORY_SEPARATOR
-    const URL_SEPARATOR = '/';
     
     /** Name of the angular folder inside the vendor folder */
     const ANGULARJS_FOLDER = 'angular-1.2.14';
@@ -146,7 +144,7 @@ class YiiAngularjsHelper extends CWidget
 
         // publish the vendor assets:
         if ($this->includeAngular) {
-            $dir = dirname(__FILE__) . self::URL_SEPARATOR . 'vendor' . self::URL_SEPARATOR . self::ANGULARJS_FOLDER;
+            $dir = dirname(__FILE__) . DIRECTORY_SEPARATOR . 'vendor' . DIRECTORY_SEPARATOR . self::ANGULARJS_FOLDER;
             $this->_vendorAssets = $assetsManager->publish($dir);
         }
 
@@ -200,14 +198,14 @@ class YiiAngularjsHelper extends CWidget
 
             // register the main AngularJS script
             $this->_clientScript->registerScriptFile(
-                $this->_vendorAssets . self::URL_SEPARATOR . 'angular' . $jsExt,
+                $this->_vendorAssets . '/angular' . $jsExt,
                 $this->scriptsPosition
             );
 
             // register the requested additional AngularJS modules
             foreach ($this->requiredModulesScriptNames as $scriptName) {
                 $this->_clientScript->registerScriptFile(
-                    $this->_vendorAssets . self::URL_SEPARATOR . 'angular-' . $scriptName . $jsExt,
+                    $this->_vendorAssets . '/angular-' . $scriptName . $jsExt,
                     $this->scriptsPosition
                 );
             }
@@ -219,7 +217,7 @@ class YiiAngularjsHelper extends CWidget
             if ($this->concatenateAppScripts) {
                 // register the concatenated script:
                 $this->_clientScript->registerScriptFile(
-                    $this->_appAssetsUrl . self::URL_SEPARATOR . $this->concatenatedFilename,
+                    $this->_appAssetsUrl . '/' . $this->concatenatedFilename,
                     $this->scriptsPosition
                 );
             }
@@ -228,7 +226,7 @@ class YiiAngularjsHelper extends CWidget
                 // register the requested application scripts in the given order:
                 foreach ($this->appScripts as $scriptFile) {
                     $this->_clientScript->registerScriptFile(
-                        $this->_appAssetsUrl . self::URL_SEPARATOR . $scriptFile,
+                        $this->_appAssetsUrl . '/' . $scriptFile,
                         $this->scriptsPosition
                     );
                 }
@@ -246,7 +244,7 @@ class YiiAngularjsHelper extends CWidget
 
             // register the requested application specific CSS files:
             foreach ($this->appStyles as $cssFile) {
-                $this->_clientScript->registerCssFile($this->_appAssetsUrl . self::URL_SEPARATOR . $cssFile);
+                $this->_clientScript->registerCssFile($this->_appAssetsUrl . '/' . $cssFile);
             }
         }
 
@@ -261,7 +259,7 @@ class YiiAngularjsHelper extends CWidget
 
         // concatenate the application scripts:
         foreach ($this->appScripts as $scriptFile) {
-            $concatenated .= file_get_contents($this->_appAssetsPath . self::URL_SEPARATOR . $scriptFile) . "\n";
+            $concatenated .= file_get_contents($this->_appAssetsPath . DIRECTORY_SEPARATOR . $scriptFile) . "\n";
         }
 
         if ($this->includeAngular) {
@@ -275,7 +273,7 @@ class YiiAngularjsHelper extends CWidget
         $this->_replacePlaceholders($concatenated);
 
         // save the new generated file:
-        $concatenatedFilePath = $this->_appAssetsPath . self::URL_SEPARATOR . $this->concatenatedFilename;
+        $concatenatedFilePath = $this->_appAssetsPath . DIRECTORY_SEPARATOR . $this->concatenatedFilename;
         file_put_contents($concatenatedFilePath, $concatenated);
         @chmod($concatenatedFilePath, Yii::app()->getAssetManager()->newFileMode);
     }
@@ -290,8 +288,8 @@ class YiiAngularjsHelper extends CWidget
 
             $scriptFileName = basename($scriptFile);
 
-            $commonFileUrl = $this->_appAssetsUrl . self::URL_SEPARATOR . $scriptFileName;
-            $commonFilePath = $this->_appAssetsPath . self::URL_SEPARATOR . $scriptFileName;
+            $commonFileUrl = $this->_appAssetsUrl . '/' . $scriptFileName;
+            $commonFilePath = $this->_appAssetsPath . DIRECTORY_SEPARATOR . $scriptFileName;
 
             $this->_publishedCommonAppScripts[$commonFilePath] = $commonFileUrl;
             copy($scriptFile, $commonFilePath);
@@ -306,7 +304,7 @@ class YiiAngularjsHelper extends CWidget
     private function _processAppScripts() {
 
         foreach ($this->appScripts as $scriptFile) {
-            $fileName = $this->_appAssetsPath . self::URL_SEPARATOR . $scriptFile;
+            $fileName = $this->_appAssetsPath . DIRECTORY_SEPARATOR . $scriptFile;
             $this->_processFile($fileName);
         }
 
@@ -322,9 +320,9 @@ class YiiAngularjsHelper extends CWidget
      */
     private function _processPartials() {
 
-        $partialsPath = $this->_appAssetsPath . self::URL_SEPARATOR . $this->partialsFolder;
+        $partialsPath = $this->_appAssetsPath . DIRECTORY_SEPARATOR . $this->partialsFolder;
 
-        $partials = glob($partialsPath . self::URL_SEPARATOR . '*.html');
+        $partials = glob($partialsPath . DIRECTORY_SEPARATOR . '*.html');
 
         foreach ($partials as $fileName) {
             $this->_processFile($fileName);
